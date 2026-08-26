@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extension Popup Test</title>
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div id="test-container" style="position: relative; width: 100vw; height: 100vh; background-color: #f3f4f6;">
+      <h1 style="padding: 2rem;">LeetCode Fake Background</h1>
+      <!-- The main.tsx script will inject #lc-companion-root into body -->
+    </div>
+    
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Simulate token
+      chrome = {
+        storage: {
+          local: {
+            get: (keys, cb) => cb({ token: 'fake-jwt-token' }),
+            set: () => {}
+          }
+        }
+      };
+
+      // Simulate interceptor messages
+      setTimeout(() => {
+        window.postMessage({
+          type: 'LC_COMPANION_QUESTION_DATA',
+          payload: {
+            questionId: "1",
+            title: "Two Sum",
+            difficulty: "Easy",
+            topicTags: [
+              { name: "Array", slug: "array" },
+              { name: "Hash Table", slug: "hash-table" }
+            ]
+          }
+        }, '*');
+
+        setTimeout(() => {
+          window.postMessage({
+            type: 'LC_COMPANION_SUBMISSION_DETAILS',
+            payload: {
+              statusCode: 10,
+              statusDisplay: "Accepted"
+            }
+          }, '*');
+        }, 500);
+      }, 500);
+    </script>
+  </body>
+</html>

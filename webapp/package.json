@@ -1,0 +1,49 @@
+{
+  "name": "webapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "migrate": "node-pg-migrate"
+  },
+  "dependencies": {
+    "@ai-sdk/groq": "^4.0.30",
+    "@dotenvx/dotenvx": "^1.14.0",
+    "@excalidraw/excalidraw": "^0.18.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "ai": "^7.0.77",
+    "bcryptjs": "^3.0.3",
+    "d3-force": "^3.0.0",
+    "date-fns": "^4.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^1.33.0",
+    "next": "latest",
+    "pg": "^8.11.3",
+    "react": "latest",
+    "react-activity-calendar": "^3.2.1",
+    "react-dom": "latest",
+    "react-force-graph-2d": "^1.29.1",
+    "react-syntax-highlighter": "^16.1.1",
+    "recharts": "^3.10.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20",
+    "@types/pg": "^8.11.0",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^9",
+    "eslint-config-next": "latest",
+    "node-pg-migrate": "^7.8.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

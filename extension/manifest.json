@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode Companion",
+  "version": "1.0.0",
+  "description": "Tag and track multiple approaches for LeetCode problems",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["src/main.tsx"],
+      "css": ["src/index.css"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["src/interceptor.ts"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["http://localhost:3000/*"],
+      "js": ["src/authBridge.ts"],
+      "run_at": "document_idle"
+    }
+  ]
+}

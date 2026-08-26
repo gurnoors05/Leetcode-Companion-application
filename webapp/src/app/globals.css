@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-gray-100 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface border border-surfaceHighlight rounded-xl shadow-sm;
+  }
+  
+  .glass-input {
+    @apply bg-background border border-surfaceHighlight rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-primary/50 focus:border-primary/50 transition-all;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-primaryHover text-zinc-900 font-semibold py-2.5 px-5 rounded-lg transition-colors shadow-sm;
+  }
+}
+
+/* Custom scrollbar for modern feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #333344;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444455;
+}
+
+/* Fix for Excalidraw UI breaking with Tailwind base SVG styles */
+.excalidraw {
+  --ui-font-family: inherit;
+}
+.excalidraw svg {
+  display: inline-block;
+  vertical-align: baseline;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+}

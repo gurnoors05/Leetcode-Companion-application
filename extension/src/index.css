@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#lc-companion-root {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999999;
+}

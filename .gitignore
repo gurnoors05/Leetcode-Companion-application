@@ -40,3 +40,6 @@ dist-ssr
 
 # Archive / Legacy
 archive/backend/node_modules/
+
+# Temporary scripts (may contain credentials)
+webapp/scripts/

@@ -9,7 +9,8 @@
   ],
   "host_permissions": [
     "https://leetcode.com/*",
-    "http://localhost:3000/*"
+    "http://localhost:3000/*",
+    "https://leetcode-companion-application.vercel.app/*"
   ],
   "background": {
     "service_worker": "src/background.ts",
@@ -29,7 +30,10 @@
       "world": "MAIN"
     },
     {
-      "matches": ["http://localhost:3000/*"],
+      "matches": [
+        "http://localhost:3000/*",
+        "https://leetcode-companion-application.vercel.app/*"
+      ],
       "js": ["src/authBridge.ts"],
       "run_at": "document_idle"
     }

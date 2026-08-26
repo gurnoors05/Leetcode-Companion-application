@@ -1,6 +1,7 @@
 window.addEventListener('message', (event) => {
   // Verify origin matches our frontend
-  if (event.origin !== 'http://localhost:3000') return;
+  const allowedOrigins = ['http://localhost:3000', 'https://leetcode-companion-application.vercel.app'];
+  if (!allowedOrigins.includes(event.origin)) return;
 
   if (event.data?.type === 'LC_AUTH_TOKEN' && event.data?.token) {
     chrome.storage.local.set({ jwt: event.data.token }, () => {

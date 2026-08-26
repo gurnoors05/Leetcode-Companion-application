@@ -180,7 +180,7 @@ export const POST = withAuth(
                topic_tags = EXCLUDED.topic_tags,
                updated_at = NOW()
            RETURNING *`,
-          [userId, title, leetcode_url, leetcode_number || null, difficulty, status, date_solved || null, topic_tags ? JSON.stringify(topic_tags) : '[]']
+          [userId, title, leetcode_url, leetcode_number || null, difficulty, status, date_solved || null, topic_tags || []]
         );
         const newProblem = problemInsert.rows[0];
 

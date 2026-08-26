@@ -722,7 +722,7 @@ export default function DataTable({ data, jwt }: { data: Problem[], jwt: string 
             
             {/* Render Canvas Wrapper in the Modal Body */}
             <div className="flex-1 w-full relative">
-              <ExcalidrawWrapper problemId={activeCanvasModal} jwt={jwt} />
+              <ExcalidrawWrapper problemId={activeCanvasModal} onClose={() => setActiveCanvasModal(null)} />
             </div>
           </div>
         </div>

@@ -109,14 +109,15 @@ export default function AnalyticsPage() {
         <div className="max-w-sm">
           <h2 className="text-xl font-bold text-zinc-100 mb-2">Connect LeetCode</h2>
           <p className="text-sm text-zinc-400 mb-6">
-            To view your complete activity heatmap and statistics, please connect your LeetCode profile in Settings.
+            Please provide your LeetCode username in Settings to view your activity heatmap and analytics.
           </p>
-          <Link 
+          <a
             href="/settings"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-zinc-900 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary/10 text-primary hover:bg-primary/20 rounded-xl text-sm font-medium transition-colors"
           >
-            Go to Settings <ArrowRight className="w-4 h-4" />
-          </Link>
+            <Settings className="w-4 h-4" />
+            Go to Settings
+          </a>
         </div>
       </div>
     );
@@ -124,8 +125,23 @@ export default function AnalyticsPage() {
 
   if (error || !data) {
     return (
-      <div className="flex h-full items-center justify-center text-error">
-        {error || 'Failed to load data'}
+      <div className="flex flex-col h-full items-center justify-center space-y-6 text-center animate-in fade-in duration-300">
+        <div className="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center">
+          <Settings className="w-8 h-8 text-error" />
+        </div>
+        <div className="max-w-sm">
+          <h2 className="text-xl font-bold text-zinc-100 mb-2">Failed to Fetch Activity</h2>
+          <p className="text-sm text-zinc-400 mb-6">
+            We couldn't load your LeetCode data. Please make sure you have provided a valid LeetCode username in the Settings page.
+          </p>
+          <a
+            href="/settings"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-surfaceHighlight hover:bg-zinc-800 text-zinc-300 rounded-xl text-sm font-medium transition-colors border border-zinc-700/50"
+          >
+            <Settings className="w-4 h-4" />
+            Check Settings
+          </a>
+        </div>
       </div>
     );
   }

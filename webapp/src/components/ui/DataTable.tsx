@@ -179,7 +179,7 @@ export default function DataTable({ data, jwt }: { data: Problem[], jwt: string 
         // Need to set up repo first
         setPendingSyncTask({ problemId, patternId, folderName });
         setIsGithubModalOpen(true);
-        return;
+        throw new Error('Please set up a GitHub repository first.');
       }
 
       if (res.ok) {
@@ -194,12 +194,13 @@ export default function DataTable({ data, jwt }: { data: Problem[], jwt: string 
         }
         // Force re-render
         setSyncingGithub(prev => ({ ...prev }));
+        // Resolve successfully - modal will show success state
       } else {
-        alert(result.error || 'Failed to push to GitHub');
+        throw new Error(result.error || 'Failed to push to GitHub');
       }
-    } catch (e) {
-      console.error(e);
-      alert('Error connecting to server');
+    } catch (e: any) {
+      setSyncingGithub(prev => ({ ...prev, [key]: false }));
+      throw e; // Re-throw so PushToGithubModal can display the error
     } finally {
       setSyncingGithub(prev => ({ ...prev, [key]: false }));
     }

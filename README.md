@@ -46,11 +46,20 @@ npm run dev
 ```
 The app will be available at `http://localhost:3000`.
 
-### 4. Loading the Chrome Extension
+### 4. Loading & Using the Chrome Extension
 1. Open Chrome and navigate to `chrome://extensions/`.
 2. Enable **Developer mode** in the top right.
 3. Click **Load unpacked** and select the `extension/dist` folder (ensure you run `npm run build` in the `extension/` folder first).
-4. Log into the web app, and the extension will automatically authenticate via the postMessage bridge.
+4. Go to the live Vercel dashboard at `https://leetcode-companion-application.vercel.app` and log in via GitHub.
+5. The extension will automatically detect your session and connect to your account.
+6. Open any LeetCode problem, write your solution, and when you click **Submit** and get an "Accepted" result, the extension will automatically intercept your code and save it directly to your Vercel database!
+
+### Sharing the Extension with Others
+If you want to share the extension with your friends so they can use your live application:
+1. Zip the `extension/dist` folder.
+2. Send the ZIP file to your friends.
+3. Tell them to unzip it, go to `chrome://extensions`, turn on Developer Mode, and click "Load unpacked" to select the folder.
+4. They just need to visit your Vercel link (`https://leetcode-companion-application.vercel.app`), log in with GitHub to create their own account, and the extension will automatically sync for them!
 
 ## Architecture Overview
 
@@ -60,5 +69,4 @@ The app will be available at `http://localhost:3000`.
 
 ## Links
 
-- **Live Deployment:** [URL_PLACEHOLDER]
-- **Demo Video:** [URL_PLACEHOLDER]
+- **Live Deployment:** [https://leetcode-companion-application.vercel.app](https://leetcode-companion-application.vercel.app)

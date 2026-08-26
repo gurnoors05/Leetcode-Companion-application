@@ -77,6 +77,8 @@ async function getDashboardData(userId: number) {
   return { problems, radarData };
 }
 
+import AuthSync from '@/components/ui/AuthSync';
+
 export default async function DashboardPage() {
   const user = await getUser();
 
@@ -93,6 +95,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
+      <AuthSync token={token} />
       
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-surfaceHighlight pb-4">
